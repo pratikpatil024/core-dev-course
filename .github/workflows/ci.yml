@@ -35,3 +35,11 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Golang-ci install
+        if: runner.os == 'Linux'
+        run: make lintci-deps
+
+      - name: Lint
+        if: runner.os == 'Linux'
+        run: make lint

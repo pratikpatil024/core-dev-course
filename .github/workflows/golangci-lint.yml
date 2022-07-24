@@ -5,10 +5,11 @@ on:
   push:
     tags:
       - v*
-    branches:
-      - master
-      - main
+    branches: [ "main" ]
   pull_request:
+    branches:
+      - "**"
+    types: [opened, synchronize]
 permissions:
   contents: read
   # Optional: allow read access to pull request. Use with `only-new-issues` option.
