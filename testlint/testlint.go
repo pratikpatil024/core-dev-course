@@ -1,8 +1,8 @@
-package main
+package testlint
 
 import "fmt"
 
-func main() {
+func testlint() {
 	fmt.Println("hello world")
 
 	x := 0
@@ -15,4 +15,8 @@ func main() {
 	fmt.Println(z)
 	y := "x"
 	fmt.Println(y)
+}
+
+func Main() {
+	testlint()
 }
