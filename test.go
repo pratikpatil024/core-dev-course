@@ -1,4 +1,6 @@
-package testlint
+package main1
+
+// package testlint
 
 import "fmt"
 
