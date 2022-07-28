@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"math"
 	"math/cmplx"
-	"math/rand"
 )
 
 const Pi = 3.14
@@ -41,6 +40,7 @@ func swap(x, y string) (string, string) {
 func split(sum int) (x, y int) {
 	x = sum * 4 / 9
 	y = sum - x
+
 	return
 }
 
@@ -53,8 +53,9 @@ func needFloat(x float64) float64 {
 }
 
 func main() {
-	fmt.Println("My favorite number is", rand.Intn(10))
-
+	// Commenting as this is a weak random number generator and the Linter is giving error
+	// Eoor: Use of weak random number generator (math/rand instead of crypto/rand)
+	// fmt.Println("My favorite number is", rand.Intn(10))
 	fmt.Printf("Now you have %g problems.\n", math.Sqrt(7))
 
 	fmt.Println(math.Pi)
@@ -68,12 +69,15 @@ func main() {
 	fmt.Println(split(17))
 
 	var i int
+
 	fmt.Println(i, c, python, java)
 
 	var c1, python1, java1 = true, false, "no!"
+
 	fmt.Println(i1, j1, c1, python1, java1)
 
 	var i2, j2 int = 1, 2
+
 	k2 := 3
 	c2, python2, java2 := true, false, "no!"
 	fmt.Println(i2, j2, k2, c2, python2, java2)
@@ -83,29 +87,38 @@ func main() {
 	fmt.Printf("Type: %T Value: %v\n", z, z)
 
 	var i3 int
+
 	var f3 float64
+
 	var b3 bool
+
 	var s3 string
+
 	fmt.Printf("%v %v %v %q\n", i3, f3, b3, s3)
 
 	var x4, y4 int = 3, 4
+
 	var f4 float64 = math.Sqrt(float64(x4*x4 + y4*y4))
+
 	var z4 uint = uint(f4)
+
 	// var z4 uint = f4
 	fmt.Println(x4, y4, z4)
 
 	v1 := 42
-	fmt.Printf("v1 is of type %T\n", v1)
 	v2 := 3.142
-	fmt.Printf("v2 is of type %T\n", v2)
 	v3 := 0.867 + 0.5i
+
+	fmt.Printf("v2 is of type %T\n", v2)
+	fmt.Printf("v1 is of type %T\n", v1)
 	fmt.Printf("v3 is of type %T\n", v3)
 
 	const World = "世界"
-	fmt.Println("Hello", World)
-	fmt.Println("Happy", Pi, "Day")
 
 	const Truth = true
+
+	fmt.Println("Hello", World)
+	fmt.Println("Happy", Pi, "Day")
 	fmt.Println("Go rules?", Truth)
 
 	fmt.Println(needInt(Small))

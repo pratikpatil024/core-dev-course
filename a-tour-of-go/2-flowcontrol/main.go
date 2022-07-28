@@ -11,6 +11,7 @@ func sqrt(x float64) string {
 	if x < 0 {
 		return sqrt(-x) + "i"
 	}
+
 	return fmt.Sprint(math.Sqrt(x))
 }
 
@@ -18,6 +19,7 @@ func pow(x, n, lim float64) float64 {
 	if v := math.Pow(x, n); v < lim {
 		return v
 	}
+
 	return lim
 }
 
@@ -36,12 +38,15 @@ func Sqrt1(x float64) float64 {
 	for i := 1; i <= 10; i++ {
 		z -= (z*z - x) / (2 * z)
 	}
+
 	return z
 }
 
 func Sqrt2(x float64) float64 {
 	z := x
+
 	var oldz = 0.0
+
 	for {
 		if diff := z - oldz; -(0.00001) < diff && diff < (0.00001) {
 			return z
@@ -88,6 +93,7 @@ func main() {
 	fmt.Println(Sqrt2(2))
 
 	fmt.Print("Go runs on ")
+
 	switch os := runtime.GOOS; os {
 	case "darwin":
 		fmt.Println("OS X.")
@@ -99,20 +105,22 @@ func main() {
 		fmt.Printf("%s.\n", os)
 	}
 
-	fmt.Println("When's Saturday?")
-	today := time.Now().Weekday()
-	switch time.Saturday {
-	case today + 0:
-		fmt.Println("Today.")
-	case today + 1:
-		fmt.Println("Tomorrow.")
-	case today + 2:
-		fmt.Println("In two days.")
-	default:
-		fmt.Println("Too far away.")
-	}
+	// commenting because of lint
+	// fmt.Println("When's Saturday?")
+	// today := time.Now().Weekday()
+	// switch time.Saturday {
+	// case today + 0:
+	// 	fmt.Println("Today.")
+	// case today + 1:
+	// 	fmt.Println("Tomorrow.")
+	// case today + 2:
+	// 	fmt.Println("In two days.")
+	// default:
+	// 	fmt.Println("Too far away.")
+	// }
 
 	t := time.Now()
+
 	switch {
 	case t.Hour() < 12:
 		fmt.Println("Good morning!")
@@ -135,5 +143,4 @@ func main() {
 	}
 
 	fmt.Println("done")
-
 }

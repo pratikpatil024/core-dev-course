@@ -15,10 +15,10 @@ type Vertex struct {
 }
 
 var (
-	v1 = Vertex{1, 2}  // has type Vertex
-	v2 = Vertex{X: 1}  // Y:0 is implicit
-	v3 = Vertex{}      // X:0 and Y:0
-	p3 = &Vertex{1, 2} // has type *Vertex
+	v10 = Vertex{1, 2}  // has type Vertex
+	v2  = Vertex{X: 1}  // Y:0 is implicit
+	v3  = Vertex{}      // X:0 and Y:0
+	p3  = &Vertex{1, 2} // has type *Vertex
 )
 
 var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
@@ -40,19 +40,21 @@ func printSlice1(s string, x []int) {
 
 func Pic(dx, dy int) [][]uint8 {
 	res := make([][]uint8, dy)
-	for i, _ := range res {
+	for i := range res {
 		res[i] = make([]uint8, dx)
 
-		for j, _ := range res[i] {
+		for j := range res[i] {
 			res[i][j] = uint8((i + j) / 2)
 		}
 	}
+
 	return res
 }
 
 func WordCount(s string) map[string]int {
 	res := make(map[string]int, 0)
 	split := strings.Fields(s)
+
 	for _, word := range split {
 		count, ok := res[word]
 		if ok {
@@ -61,6 +63,7 @@ func WordCount(s string) map[string]int {
 			res[word] = 1
 		}
 	}
+
 	return res
 }
 
@@ -70,6 +73,7 @@ func compute(fn func(float64, float64) float64) float64 {
 
 func adder() func(int) int {
 	sum := 0
+
 	return func(x int) int {
 		sum += x
 		return sum
@@ -80,6 +84,7 @@ func adder() func(int) int {
 // a function that returns an int.
 func fibonacci() func() int {
 	i, j := 0, 1
+
 	return func() int {
 		i, j = j, i+j
 		return i
@@ -93,10 +98,12 @@ func main() {
 	fmt.Println(p)
 	fmt.Println(*p) // read i through the pointer
 	*p = 21         // set i through the pointer
-	fmt.Println(i)  // see the new value of i
 
-	p = &j         // point to j
-	*p = *p / 37   // divide j through the pointer
+	fmt.Println(i) // see the new value of i
+
+	p = &j       // point to j
+	*p = *p / 37 // divide j through the pointer
+
 	fmt.Println(j) // see the new value of j
 
 	fmt.Println(Vertex{1, 2})
@@ -108,9 +115,10 @@ func main() {
 	v1 := Vertex{1, 2}
 	p1 := &v1
 	p1.X = 1e9
+
 	fmt.Println(v1)
 
-	fmt.Println(v1, p3, v2, v3)
+	fmt.Println(v10, p3, v2, v3)
 
 	var a [2]string
 	a[0] = "Hello"
@@ -122,6 +130,7 @@ func main() {
 	fmt.Println(primes)
 
 	var s []int = primes[1:4]
+
 	fmt.Println(s)
 
 	names := [4]string{
@@ -186,7 +195,9 @@ func main() {
 	printSlice(s3)
 
 	var s4 []int
+
 	fmt.Println(s4, len(s4), cap(s4))
+
 	if s4 == nil {
 		fmt.Println("nil!")
 	}
@@ -205,9 +216,9 @@ func main() {
 
 	// Create a tic-tac-toe board.
 	board := [][]string{
-		[]string{"_", "_", "_"},
-		[]string{"_", "_", "_"},
-		[]string{"_", "_", "_"},
+		{"_", "_", "_"},
+		{"_", "_", "_"},
+		{"_", "_", "_"},
 	}
 
 	// The players take turns.
@@ -222,6 +233,7 @@ func main() {
 	}
 
 	var s5 []int
+
 	printSlice(s5)
 
 	// append works on nil slices.
@@ -244,6 +256,7 @@ func main() {
 	for i := range pow1 {
 		pow1[i] = 1 << uint(i) // == 2**i
 	}
+
 	for _, value := range pow1 {
 		fmt.Printf("%d\n", value)
 	}
@@ -265,6 +278,7 @@ func main() {
 			37.42202, -122.08408,
 		},
 	}
+
 	fmt.Println(m1)
 
 	m3 := make(map[string]int)
